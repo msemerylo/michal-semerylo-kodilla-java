@@ -8,8 +8,8 @@ public class OddNumbersExterminator {
     public List<Integer> exterminate(List<Integer> numbers) {
         List<Integer> number = new ArrayList<Integer>();
         Random random = new Random();
-        for (int i=0; i>0; i++) {
-            if (i % 2 ==0) {
+        for (int i=0; i<=50; i++) {
+            if ((i % 2) ==0) {
                 number.add(random.nextInt(50));
             }
         }
