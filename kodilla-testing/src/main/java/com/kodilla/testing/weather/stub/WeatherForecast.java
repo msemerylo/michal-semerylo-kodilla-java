@@ -20,11 +20,19 @@ public class WeatherForecast {
     }
 
     public double averageTemperature() {
-        Double sum = 0.0;
+        double sum = 0.0;
         Map<String, Double> resoultMap = new HashMap<>();
 
         for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet())
             sum = sum + resoultMap.get(temperature.getValue());
         return sum / resoultMap.size();
     }
+
+
+
+  //  public double medianTemperature() {
+  //      Map <String, Double> resoultMap = new HashMap<>();
+
+
+  //  }
 }
