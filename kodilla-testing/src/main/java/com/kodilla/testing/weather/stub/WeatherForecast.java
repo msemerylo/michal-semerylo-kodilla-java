@@ -1,7 +1,10 @@
 package com.kodilla.testing.weather.stub;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 public class WeatherForecast {
     private Temperatures temperatures;
 
@@ -20,19 +23,19 @@ public class WeatherForecast {
     }
 
     public double averageTemperature() {
-        double sum = 0.0;
         Map<String, Double> resoultMap = new HashMap<>();
+        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
+            resoultMap.put(temperature.getKey(), temperature.getValue());
 
-        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet())
-            sum = sum + resoultMap.get(temperature.getValue());
-        return sum / resoultMap.size();
+        }
+        return resoultMap.values().stream().reduce(0.0, Double::sum) / resoultMap.size();
     }
+    public double medianTemperature() {
+        Map<String, Double> resoultMap = new HashMap<>();
+        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
+            resoultMap.put(temperature.getKey(), temperature.getValue());
+        }
 
-
-
-  //  public double medianTemperature() {
-  //      Map <String, Double> resoultMap = new HashMap<>();
-
-
-  //  }
+        return resoultMap.get("Rzeszow");
+    }
 }
