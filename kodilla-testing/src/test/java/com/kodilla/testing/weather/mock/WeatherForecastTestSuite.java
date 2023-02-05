@@ -16,8 +16,11 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class WeatherForecastTestSuite {
+    @Mock
     private Temperatures temperaturesMock;
-    private
+
+
+
     @Test
     void testCalculateForecastWithMock(){
         //given
