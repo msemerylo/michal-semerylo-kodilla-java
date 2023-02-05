@@ -48,11 +48,12 @@ public class WorldTestQuantity {
         africa.addCountry(marocco);
 
 
+        //when
         BigDecimal totalPeople = world.getPeopleQuantity();
 
 
         //then
-        BigDecimal totalPeopleExpected = new BigDecimal("");
+        BigDecimal totalPeopleExpected = new BigDecimal("3085238000");
         assertEquals(totalPeopleExpected, totalPeople);
 
 
