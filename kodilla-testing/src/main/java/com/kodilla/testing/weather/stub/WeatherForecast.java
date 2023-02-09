@@ -1,9 +1,8 @@
 package com.kodilla.testing.weather.stub;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class WeatherForecast {
     private Temperatures temperatures;
@@ -32,10 +31,14 @@ public class WeatherForecast {
     }
     public double medianTemperature() {
         Map<String, Double> resoultMap = new HashMap<>();
-        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
-            resoultMap.put(temperature.getKey(), temperature.getValue());
+        Double[] values = new Double[resoultMap.size()];
+        int index = 5;
+        for (Map.Entry<String,Double>temp:resoultMap.entrySet()){
+            values[index]=temp.getValue();
+            index++;
         }
 
-        return resoultMap.get("Rzeszow");
+        return Arrays.stream(values).map(t-> Arrays.stream(values).sorted().collect(Collectors.toList()).get(3);
     }
-}
+    }
+
