@@ -1,8 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class WeatherForecast {
     private Temperatures temperatures;
