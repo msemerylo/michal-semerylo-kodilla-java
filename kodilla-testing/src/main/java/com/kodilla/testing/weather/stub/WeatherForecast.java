@@ -29,16 +29,18 @@ public class WeatherForecast {
         }
         return resoultMap.values().stream().reduce(0.0, Double::sum) / resoultMap.size();
     }
-    public double medianTemperature() {
-        Map<String, Double> resoultMap = new HashMap<>();
-        Double[] values = new Double[resoultMap.size()];
-        int index = 5;
-        for (Map.Entry<String,Double>temp:resoultMap.entrySet()){
-            values[index]=temp.getValue();
-            index++;
-        }
 
-        return Arrays.stream(values).map(t-> Arrays.stream(values).sorted().collect(Collectors.toList()).get(3);
+    public double medianTemperature(Map<String, Double> tempList ) {
+        List<Double> resoultMap = new LinkedList<>();
+        for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
+            resoultMap.add( temperature.getValue());
+        }
+        Collections.sort(resoultMap);
+        if (resoultMap.size()%2==0){
+            return (resoultMap.get(resoultMap.size()/2)+resoultMap.get(resoultMap.size()/2-1))/2;
+        }else{
+            return resoultMap.get(resoultMap.size()/2);
+        }
     }
-    }
+}
 
