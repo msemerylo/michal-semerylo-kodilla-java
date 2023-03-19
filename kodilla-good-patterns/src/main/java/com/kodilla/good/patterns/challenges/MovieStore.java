@@ -34,11 +34,7 @@ public class MovieStore {
 
         String movies = movieMap.entrySet()
                 .stream()
-                .flatMap(t->{List<String> list = new ArrayList<>();
-                    list.add(t.getKey());
-                    list.addAll(t.getValue());
-                    return list.stream();
-                    })
+                .flatMap(movie->movie.getValue().stream())
                 .collect(Collectors.joining(" ! "));
         System.out.println(movies);
     }
