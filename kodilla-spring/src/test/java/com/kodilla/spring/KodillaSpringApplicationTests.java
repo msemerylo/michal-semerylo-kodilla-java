@@ -2,6 +2,7 @@ package com.kodilla.spring;
 
 import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.forum.User;
+import com.kodilla.spring.library.LibraryConfig;
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
@@ -10,6 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -74,6 +78,16 @@ class KodillaSpringApplicationTests {
         String name = user.getUsername();
         //then
         assertEquals("John Smith",name);
+    }
+    @Test
+    void testContext(){
+        //given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        //when & then
+        System.out.println("== Beans List: ==>>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<<== Beans List ==");
     }
 
 }
